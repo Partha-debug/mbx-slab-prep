@@ -1,0 +1,48 @@
+Loaded config: /scratch/user/p.dash/workspace/tools/ship/config.conf
+
+  ┌─────────────────────────────────────────────────────────┐
+  │              mbx-water-slab-prep                        │
+  └─────────────────────────────────────────────────────────┘
+  N waters:          512
+  density:           1.0 g/cm³
+  Lx = Ly:           24.834447 Å
+  Lz:                74.503341 Å  (z_mult = 3)
+  seed:              42
+  temperature:       298.15 K
+  timestep:          0.2 fs
+  equil steps:       5000
+  output:            /scratch/user/p.dash/workspace/tools/ship/test/large_512w/water_slab_512H2O_rho1.0_z3x.data
+
+── [1/5] Packing with Packmol ─────────────────────────────────
+  Simulation box : [0, 24.8344] Å
+  Packing region : [1.0, 23.8344] Å  (min PBC distance ≥ 2.0 Å)
+  Packmol OK — 1536 atoms written
+
+── [2/5] Converting PDB → LAMMPS data file ────────────────────
+  1536 atoms / 1024 bonds / 512 angles → /scratch/user/p.dash/workspace/tools/ship/test/large_512w/.mbxslab_1407842.initial.data
+
+── [3/5] Building slab (z_mult = 3) ───────────────────
+  Bond check OK (all O–H < 2.0 Å after unwrapping)
+  Slab z range : 25.806 – 48.746 Å  (center 37.316 Å)
+  Box          : [0, 74.503] Å  (vacuum ≈ 24.83 Å each side)
+  Written: /scratch/user/p.dash/workspace/tools/ship/test/large_512w/water_slab_512H2O_rho1.0_z3x.data
+
+── [4/5] Validating ────────────────────────────────────────────
+
+  ── Slab validation ──────────────────────────────────────────────
+  Box         : 24.8344 × 24.8344 × 74.5033 Å
+  Water z     : 25.806 – 48.746 Å  (thickness ≈ 25.94 Å)
+  Vacuum      : ≈ 24.28 Å on each side
+  Density     : ≈ 0.9574 g/cm³  (in slab region)
+  Min O–O     : 2.1852 Å  (PBC)   mean nearest-O–O: 13.0834 Å
+  Status      : PASSED
+
+── [5/5] Generating LAMMPS input and mbx.json ─────────────────
+  LAMMPS input  → /scratch/user/p.dash/workspace/tools/ship/test/large_512w/in.equil.lammps
+  MBX config    → /scratch/user/p.dash/workspace/tools/ship/test/large_512w/mbx.json
+  Equilibration : 5,000 steps  (0.001 ns at 0.2 fs/step)  T = 298.15 K
+
+  Data file  → /scratch/user/p.dash/workspace/tools/ship/test/large_512w/water_slab_512H2O_rho1.0_z3x.data
+  LAMMPS in  → /scratch/user/p.dash/workspace/tools/ship/test/large_512w/in.equil.lammps
+  MBX config → /scratch/user/p.dash/workspace/tools/ship/test/large_512w/mbx.json
+

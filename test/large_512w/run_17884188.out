@@ -1,0 +1,147 @@
+LAMMPS (11 Feb 2026 - Development - patch_11Feb2026-11-gd97c5bdda6)
+  using 12 OpenMP thread(s) per MPI task
+Reading data file ...
+  orthogonal box = (0 0 0) to (24.834447 24.834447 74.503341)
+  1 by 1 by 4 MPI processor grid
+  reading atoms ...
+  1536 atoms
+  scanning bonds ...
+  2 = max bonds/atom
+  scanning angles ...
+  1 = max angles/atom
+  orthogonal box = (0 0 0) to (24.834447 24.834447 74.503341)
+  1 by 1 by 4 MPI processor grid
+  reading bonds ...
+  1024 bonds
+  reading angles ...
+  512 angles
+Finding 1-2 1-3 1-4 neighbors ...
+  special bond factors lj:    0        0        0       
+  special bond factors coul:  0        0        0       
+     2 = max # of 1-2 neighbors
+     1 = max # of 1-3 neighbors
+     1 = max # of 1-4 neighbors
+     2 = max # of special neighbors
+  special bonds CPU = 0.000 seconds
+  read_data CPU = 0.017 seconds
+
+CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE
+
+Your simulation uses code contributions which should be cited:
+- pair mbx command:
+The log file lists these citations in BibTeX format.
+
+CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE
+
+Generated 0 of 1 mixed pair_coeff terms from geometric mixing rule
+WARNING: Bonds are defined but no bond style is set (src/force.cpp:198)
+WARNING: Likewise 1-2 special neighbor interactions != 1.0 (src/force.cpp:200)
+WARNING: Angles are defined but no angle style is set (src/force.cpp:203)
+WARNING: Likewise 1-3 special neighbor interactions != 1.0 (src/force.cpp:205)
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 11
+  ghost atom cutoff = 11
+  binsize = 5.5, bins = 5 5 14
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair mbx, perpetual
+      attributes: half, newton on
+      pair build: half/bin/newton
+      stencil: half/bin/3d
+      bin: standard
+Setting up cg style minimization ...
+  Unit style    : real
+  Current step  : 0
+Per MPI rank memory allocation (min/avg/max) = 17.53 | 18.48 | 19.61 Mbytes
+   Step          Temp          E_pair         E_mol          TotEng         Press     
+         0   0              3510.8159      0              3510.8159     -6643.5025    
+       247   0             -5986.6223      0             -5986.6223     -309.71463    
+Loop time of 99.6372 on 48 procs for 247 steps with 1536 atoms
+
+823.1% CPU use with 4 MPI tasks x 12 OpenMP threads
+
+Minimization stats:
+  Stopping criterion = energy tolerance
+  Energy initial, next-to-last, final = 
+      3510.81589273065  -5986.04390556695  -5986.62232306948
+  Force two-norm initial, final = 2011.4683 34.860398
+  Force max component initial, final = 98.330762 7.5247743
+  Final line search alpha, max atom move = 0.0051666907 0.038878181
+  Iterations, force evaluations = 247 478
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 94.785     | 96.959     | 99.148     |  22.1 | 97.31
+Bond    | 9.0441e-05 | 0.00010176 | 0.00012516 |   0.0 |  0.00
+Neigh   | 0.00011446 | 0.017489   | 0.045013   |  14.2 |  0.02
+Comm    | 0.016586   | 0.074818   | 0.13916    |  19.3 |  0.08
+Output  | 0          | 0          | 0          |   0.0 |  0.00
+Modify  | 0.26642    | 0.29696    | 0.3345     |   5.5 |  0.30
+Other   |            | 2.289      |            |       |  2.30
+
+Nlocal:            384 ave         774 max           0 min
+Histogram: 2 0 0 0 0 0 0 0 0 2
+Nghost:           2684 ave        4495 max         866 min
+Histogram: 2 0 0 0 0 0 0 0 0 2
+Neighs:          94551 ave      222761 max           0 min
+Histogram: 2 0 0 0 0 0 1 0 0 1
+
+Total # of neighbors = 378204
+Ave neighs/atom = 246.22656
+Ave special neighs/atom = 2
+Neighbor list builds = 8
+Dangerous builds = 0
+Generated 0 of 1 mixed pair_coeff terms from geometric mixing rule
+WARNING: Bonds are defined but no bond style is set (src/force.cpp:198)
+WARNING: Likewise 1-2 special neighbor interactions != 1.0 (src/force.cpp:200)
+WARNING: Angles are defined but no angle style is set (src/force.cpp:203)
+WARNING: Likewise 1-3 special neighbor interactions != 1.0 (src/force.cpp:205)
+Setting up Verlet run ...
+  Unit style    : real
+  Current step  : 0
+  Time step     : 0.2
+Per MPI rank memory allocation (min/avg/max) = 16.42 | 17.37 | 18.5 Mbytes
+   Step          Temp          PotEng         KinEng         TotEng         Press         Density          CPU          CPULeft    
+         0   0             -5986.6223      0             -5986.6223     -309.71463      0.33333069     0              0            
+      1000   130.53948     -5816.5441      597.28907     -5219.255       704.33686      0.33333069     210.05424      840.21697    
+      2000   298.79583     -4837.9682      1367.1533     -3470.8149      1829.0783      0.33333069     417.26663      625.89995    
+      3000   294.33513     -4611.6257      1346.7432     -3264.8825      465.13087      0.33333069     621.83113      414.55408    
+      4000   288.18219     -4437.2         1318.5901     -3118.6099     -223.99564      0.33333069     816.08348      204.02087    
+      5000   301.8178      -4341.7727      1380.9805     -2960.7923     -386.36561      0.33333069     999.38104      0            
+Loop time of 999.732 on 48 procs for 5000 steps with 1536 atoms
+
+Performance: 0.086 ns/day, 277.703 hours/ns, 5.001 timesteps/s, 7.682 katom-step/s
+820.5% CPU use with 4 MPI tasks x 12 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 949.7      | 971.4      | 994.06     |  69.3 | 97.17
+Bond    | 0.00079609 | 0.00093781 | 0.0012881  |   0.0 |  0.00
+Neigh   | 0.0025275  | 0.14253    | 0.34728    |  39.0 |  0.01
+Comm    | 0.33514    | 6.3089     | 21.023     | 340.4 |  0.63
+Output  | 0.33575    | 0.33592    | 0.33623    |   0.0 |  0.03
+Modify  | 4.0404     | 21.432     | 49.26      | 407.8 |  2.14
+Other   |            | 0.1063     |            |       |  0.01
+
+Nlocal:            384 ave         798 max           0 min
+Histogram: 2 0 0 0 0 0 0 0 0 2
+Nghost:         2661.5 ave        4125 max        1153 min
+Histogram: 2 0 0 0 0 0 0 0 0 2
+Neighs:        78986.2 ave      167727 max           0 min
+Histogram: 2 0 0 0 0 0 0 0 1 1
+
+Total # of neighbors = 315945
+Ave neighs/atom = 205.69336
+Ave special neighs/atom = 2
+Neighbor list builds = 69
+Dangerous builds = 0
+System init for write_data ...
+Generated 0 of 1 mixed pair_coeff terms from geometric mixing rule
+WARNING: Bonds are defined but no bond style is set (src/force.cpp:198)
+WARNING: Likewise 1-2 special neighbor interactions != 1.0 (src/force.cpp:200)
+WARNING: Angles are defined but no angle style is set (src/force.cpp:203)
+WARNING: Likewise 1-3 special neighbor interactions != 1.0 (src/force.cpp:205)
+Total wall time: 0:18:21
