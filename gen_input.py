@@ -1,21 +1,6 @@
-"""
-gen_input.py — Generate a LAMMPS equilibration input file and mbx.json
-               for an MB-pol air/water slab simulation.
+"""Generate `in.equil.lammps` and `mbx.json` for an MB-pol slab equilibration.
 
-Outputs
-───────
-  in.equil.lammps   NVT equilibration input (minimise → NVT run)
-  mbx.json          MBX configuration with all parameters documented
-
-The generated input is intentionally minimal and self-documenting.
-Users are expected to inspect and adjust it before running production
-simulations.
-
-Usage (internal — called by make_slab.sh):
-    python gen_input.py --data-file FILE --nwaters N
-                        --lx LX --lz LZ
-                        [--temp FLOAT] [--equil-steps INT]
-                        --outdir DIR
+Usage: python gen_input.py --data-file FILE --nwaters N --lx LX --lz LZ --outdir DIR
 """
 
 import argparse
@@ -97,31 +82,7 @@ write_data      equil_final.data
 def make_mbx_json(cutoff: float) -> dict:
     return {
         "Note": [
-            "MBX configuration for water slab simulations with MB-pol.",
-            "",
-            "box              : Box vectors [ax ay az bx by bz cx cy cz].",
-            "                   Leave as [] — LAMMPS passes the box to MBX via pair_style mbx.",
-            "realspace_cutoff : Cutoff (Å) for real-space dispersion and electrostatics (PME).",
-            "twobody_cutoff   : Cutoff (Å) for 2-body polynomials. 6.5 Å for pure water;",
-            "                   set to 9.0 Å when ions are present or for slab safety.",
-            "threebody_cutoff : Cutoff (Å) for 3-body polynomials. 4.5 Å for pure water;",
-            "                   set to 7.0 Å when ions are present or for slab safety.",
-            "dipole_tolerance : Convergence criterion for induced dipoles:",
-            "                   sum_i |μ(i,t+1) − μ(i,t)|² < tolerance. Use 1e-8 for",
-            "                   vSFG calculations that are sensitive to dipole accuracy.",
-            "dipole_max_it    : Max CG iterations for induced-dipole solver.",
-            "                   If exceeded, LAMMPS aborts with 'Max number of iterations",
-            "                   reached' — usually caused by atoms that are too close.",
-            "dipole_method    : 'iter' = simple iterative, 'cg' = conjugate gradient (faster),",
-            "                   'aspc' = always-stable predictor-corrector (best for long MD).",
-            "alpha_ewald_elec : Ewald splitting parameter for electrostatics PME.",
-            "grid_density_elec: PME grid density (points/Å) for electrostatics.",
-            "spline_order_elec: B-spline order for electrostatics PME interpolation.",
-            "alpha_ewald_disp : Ewald splitting parameter for dispersion PME.",
-            "grid_density_disp: PME grid density (points/Å) for dispersion.",
-            "spline_order_disp: B-spline order for dispersion PME interpolation.",
-            "ignore_2b_poly   : List of [mon1, mon2] pairs to skip 2-body polynomials.",
-            "ignore_3b_poly   : List of [mon1, mon2, mon3] triplets to skip 3-body polynomials."
+            "MBX configuration for MB-pol slab simulations. See mbx.json keys for parameters."
         ],
         "MBX": {
             "box": [],

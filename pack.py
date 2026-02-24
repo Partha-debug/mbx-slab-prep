@@ -1,19 +1,9 @@
-"""
-pack.py — Generate a Packmol input file and run Packmol to pack N water molecules.
+"""Create a Packmol input and run Packmol to pack N water molecules.
 
-The inner packing cube is inset by BUFFER angstroms on every face so that the
-minimum periodic-image atom-atom distance is guaranteed to be >= the packing
-tolerance (2.0 Å by default).  This prevents the MBX induced-dipole CG solver
-from failing on the first energy evaluation due to unphysically close contacts
-that Packmol would otherwise place across a periodic boundary.
+Ensures a small buffer from box faces so packed atoms satisfy a minimum
+periodic-image distance.
 
-Requires the `packmol` pip package (pip install packmol), which places the
-packmol executable on PATH inside the active Python environment.
-
-Usage (internal — called by make_slab.sh):
-    python pack.py --nwaters N --lx LX --template WATER_PDB
-                   --out-inp PACK_INP --out-pdb PACK_PDB
-                   [--seed INT] [--tolerance FLOAT]
+Usage: python pack.py --nwaters N --lx LX --template WATER_PDB --out-inp PACK_INP --out-pdb PACK_PDB
 """
 
 import argparse

@@ -1,18 +1,8 @@
-"""
-build_slab.py — Convert a cubic water box LAMMPS data file into an air/water slab.
+"""Create an air/water slab from a cubic LAMMPS data file by extending z.
 
-The xy dimensions are unchanged (no rescaling).  The z box is extended to
-Lz = z_mult × Lx, and the water slab is centered within that z range, creating
-equal vacuum regions above and below the interface.
+Centers the water slab in z and writes a new LAMMPS data file.
 
-    Z_SHIFT = Lx × (z_mult − 1) / 2
-
-This places both air/water interfaces in the x–y plane, which is the standard
-geometry for vibrational sum-frequency generation (vSFG) spectroscopy simulations
-using the MB-pol potential.
-
-Usage (internal — called by make_slab.sh):
-    python build_slab.py --input CUBIC.data --lx LX --z-mult Z --out SLAB.data
+Usage: python build_slab.py --input CUBIC.data --lx LX --z-mult Z --out SLAB.data
 """
 
 import argparse

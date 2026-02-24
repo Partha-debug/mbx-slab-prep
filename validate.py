@@ -1,29 +1,9 @@
-"""
-validate.py - Validate the generated water slab LAMMPS data file.
+"""Validate a LAMMPS water-slab data file.
 
-Uses numpy for vectorised O–O pairwise distance calculation with full 3D
-periodic boundary conditions, which is significantly faster than a Python
-loop for large systems (N > ~100 molecules).
+Performs basic consistency checks and reports the minimum O–O distance
+under periodic boundary conditions.
 
-Checks performed
-────────────────
-  1. Atom / bond / angle counts are consistent with N water molecules
-  2. Atom ordering within each molecule is O, H, H  (required by MBX)
-  3. No atoms sit outside the box boundaries (tolerance 1e-4 Å)
-  4. Minimum O–O distance under full 3D PBC is >= min_oo threshold (default 1.8 Å)
-     This is the critical check: the MBX induced-dipole conjugate-gradient solver
-     will fail at the first energy evaluation if two oxygens are closer than
-     ~2 Å, causing LAMMPS to abort with "Max number of iterations reached".
-
-Reports
-───────
-  - Box dimensions
-  - Slab z-range and approximate vacuum thickness per side
-  - Estimated density in the water region
-  - Minimum and mean O–O PBC distances
-
-Usage (internal — called by make_slab.sh):
-    python validate.py --slab SLAB.data --nwaters N --lx LX [--min-oo FLOAT]
+Usage: python validate.py --slab SLAB.data --nwaters N --lx LX [--min-oo FLOAT]
 """
 
 import argparse

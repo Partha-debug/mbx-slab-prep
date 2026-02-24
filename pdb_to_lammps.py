@@ -1,24 +1,9 @@
-"""
-pdb_to_lammps.py — Convert a Packmol water PDB to a LAMMPS data file.
+"""Convert a Packmol PDB to a LAMMPS `atom_style full` data file.
 
-Output format:  atom_style full  (required by the MBX pair style in LAMMPS)
+Groups atoms into water molecules and writes O,H,H atom ordering with MB-pol
+charges and masses.
 
-Atom ordering within each molecule is written as O, H, H — the order expected
-by MBX when it reads molecule topology from consecutive atom IDs.
-
-Handles any per-molecule atom ordering produced by Packmol (O,H,H  or  H,H,O
-or H,O,H) by grouping lines into triplets and identifying atom types by name.
-
-MB-pol specific parameters applied here
-────────────────────────────────────────
-  Atom types  : 1 = O,  2 = H
-  Charges     : O = −1.1128 e,  H = +0.5564 e   (MB-pol point charges)
-  Masses      : O = 15.9994 amu,  H = 1.00794 amu
-  Bond type 1 : O–H  (topology only; MBX handles the intramolecular potential)
-  Angle type 1: H–O–H (topology only)
-
-Usage (internal — called by make_slab.sh):
-    python pdb_to_lammps.py --pdb INPUT.pdb --nwaters N --lx LX --out OUTPUT.data
+Usage: python pdb_to_lammps.py --pdb INPUT.pdb --nwaters N --lx LX --out OUTPUT.data
 """
 
 import argparse
