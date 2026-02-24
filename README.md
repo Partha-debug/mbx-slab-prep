@@ -2,6 +2,8 @@
 
 A command-line tool that generates ready-to-run LAMMPS input for **MB-pol air/water slab simulations** using the [MBX](https://github.com/paesanilab/MBX) pair style.
 
+![Slab example](test/medium_216w/ic.png)
+
 Given a number of water molecules, a bulk density, and a vacuum multiplier, the tool packs the molecules with [Packmol](https://m3g.github.io/packmol/), assigns the correct MB-pol charges and masses, writes an `atom_style full` LAMMPS data file with the water slab centred in a periodic box, and generates a matching `in.equil.lammps` and `mbx.json` ready to run.
 
 ---
